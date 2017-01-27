@@ -1,0 +1,118 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left">
+            <a href="#" data-panel="left" class="link icon-only back"><i class="fa fa-angle-left fa-lg" aria-hidden="true"></i></a>
+        </div>
+        <div class="center sliding">ADD EVENT</div>
+        <div class="right">
+        </div>
+    </div>
+</div>
+
+<div class="pages">
+    <!-- Page, data-page contains page name-->
+    <div data-page="add-event" class="page">
+        <!-- Scrollable page content-->
+        <div class="page-content">
+            <div class="content-block">
+                <div class="list-block">
+                    <form id="add-event-form">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <input type="hidden" name="img" id="hdn-event-img" />
+                                    <div class="item-inner">
+                                        <div class="item-title label">
+                                            <img src="img/i-f7-ios.png" id="event-img-prev" style="width:50px; height:50px" />
+                                        </div>
+                                        <div class="item-input">
+                                            <input type="button" id="event-img" value="Browse Image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-input">
+                                            <input type="text" name="title" placeholder="Event Name">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-input">
+                                            <textarea name="desc" placeholder="Event Description"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-media"><i class="icon icon-form-calendar"></i></div>
+                                        <div class="item-input">
+                                            <input type="date" name="start_date" placeholder="Date">
+                                        </div>
+
+
+                                        <div class="item-media"><i class="icon icon-form-calendar"></i></div>
+                                        <div class="item-input">
+                                            <input type="date" name="end_date" placeholder="Date">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-input">
+                                            <input type="text" name="ppl_cust_id" placeholder="PayPal Business Id">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="item-content">
+                                    <input type="hidden" name="imgs" id="hdn-event-imgs" />
+                                    <div class="item-inner">
+                                        <div class="item-title label">
+                                            <img src="img/i-f7-ios.png" id="event-imgs-prev" style="width:50px; height:50px" />
+                                        </div>
+                                        <div class="item-input">
+                                            <input type="button" id="event-imgs" value="Upload Picture">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-input">
+                                            <input type="text" name="friend_ids" placeholder="Add Friends">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <br>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-input">
+                                            <input type="button" id="btn-add-event" value="Add">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

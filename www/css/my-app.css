@@ -1,0 +1,203 @@
+@font-face {
+    font-family: 'open_sanslight';
+    src: url('../font/opensans-light-webfont.woff2') format('woff2'),
+         url('../font/opensans-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.app-logo{
+    height: auto;
+    width: 100%;
+/*    background-color: white;*/
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+    margin-top: 10%;
+}
+.app-fild{
+    margin: 0px !important;
+    width: 85%;
+    float: right;
+}
+.app-fild2{
+    width: 85%;
+    float: right;
+}
+.app-form01{
+    margin-top: 10%;
+}
+
+.app-cont{
+    margin-bottom: 0px;
+}
+.app-acc{
+    margin-left: 20%;
+    margin-top: 10%;
+}
+.app-acc a{
+    font-family:'open_sanslight';
+    font-size: 6.0vh;
+    color: #fff;
+
+}
+.label2{
+    margin-right: 4%;
+}
+::-webkit-input-placeholder {
+   color: #fff;
+    font-family:'open_sanslight';
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #fff;
+    font-family:'open_sanslight';
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #fff;
+    font-family:'open_sanslight';
+}
+
+:-ms-input-placeholder {
+   color: #fff;
+    font-family:'open_sanslight';
+}
+.app-signup{
+     margin-left: 20%;
+    margin-top: 15%;
+}
+.app-signup a{
+    font-family:'open_sanslight';
+    font-size: 4.0vh;
+    color: #fff;
+    padding: 5px 10px;
+    position: absolute;
+    z-index: 9999999;
+}
+
+.sliding{
+    color: #fff;
+    font-family: 'open_sanslight'
+}
+.link i{
+    color: #fff;
+}
+
+.app-profile-pic{
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+    width: 55%;
+    height: 55%;
+
+}
+
+.app-profile-pic a img {
+     border-radius: 100px;
+     /* Safari 3-4, iOS 1-3.2, Android 1.6- */
+  -webkit-border-radius: 100px;
+
+  /* Firefox 1-3.6 */
+  -moz-border-radius: 100px;
+    border: 1px solid #996600;
+}
+
+.app-profile-pic-f{
+
+    width: 10%;
+    height: 10%;
+
+}
+
+.app-profile-pic-f a img {
+     border-radius: 100px;
+     /* Safari 3-4, iOS 1-3.2, Android 1.6- */
+  -webkit-border-radius: 100px;
+
+  /* Firefox 1-3.6 */
+  -moz-border-radius: 100px;
+    border: 3px solid #996600;
+}
+
+
+/*
+.app-profile-pic2{
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+    width: 100%;
+}
+*/
+
+.app-profile-pic2 a {
+    font-family:'open_sanslight';
+    font-size: 3.5vh;
+    color: #fff;
+    text-align: center !important;
+    display: block;
+}
+.app-top-bar{
+    margin-top: 30px;
+}
+
+.item-media {
+    height: 8%;
+    width: 13%;
+}
+
+.item-inner span{
+    font-family: 'open_sanslight';
+    font-size: 4vh;
+    color: #fff;
+}
+
+.mobile-margin{
+    margin-left: 10px;
+}
+
+.app-index-menu1{
+    padding: 5px 0 5px 10px;
+    font-family:'open_sanslight';
+    color: #fff;
+}
+
+li.app-menu-off a{
+    color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding-top: 15px;
+    text-align: center;
+}
+
+/*upload*/
+
+.file-button {
+  position:relative;
+  overflow:hidden;
+}
+.file-button input {
+  font-size: 10000px;
+  position: absolute;
+  left:0;
+  top:0;
+  opacity:0;
+}
+
+
+
+
+@media (max-width:330px) {
+   .app-signup{
+     margin-left: 20%;
+       margin-top: 25px;
+}
+    .app-logo{
+    margin-top: 0px;
+}
+    .app-form01{
+    margin-top: 10px;
+}
+}

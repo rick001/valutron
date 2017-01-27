@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+    <!--
+      * Please see the included README.md file for license terms and conditions.
+    -->
+    <head>
+        <title>Vaultron</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <!-- see http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <style>
+            /* following two viewport lines are equivalent to the meta viewport statement above, needed for Windows */
+            /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html and http://dev.w3.org/csswg/css-device-adapt/ */
+            @-ms-viewport { width: 100vw ; zoom: 100% ; }  @viewport { width: 100vw ; zoom: 100% ; }
+            @-ms-viewport { user-zoom: fixed ; }           @viewport { user-zoom: fixed ; }
+        </style>
+
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+
+        <!-- Path to Framework7 Library CSS-->
+        <link rel="stylesheet" href="css/framework7.ios.min.css">
+        <link rel="stylesheet" href="css/framework7.3dpanels.css">
+        <link rel="stylesheet" href="css/font-awesome.css">
+        <!--    <link rel="stylesheet" href="css/framework7.ios.colors.min.css">-->
+        <!--    <link rel="stylesheet" href="css/bootstrap.min.css">-->
+        <!-- Path to your custom app styles-->
+        <link rel="stylesheet" href="css/my-app.css">
+        <script src="cordova.js"></script>          <!-- phantom library, needed for Cordova api calls, added during build -->
+        <script src="js/app.js"></script>           <!-- recommended location of your JavaScript code relative to other JS files -->
+        <script src="xdk/init-dev.js"></script>     <!-- normalizes device and document ready events, see README for details -->
+    </head>
+
+<body>
+    <div class="statusbar-overlay"></div>
+    <div class="panel-overlay"></div>
+    <div class="panel panel-left panel-reveal">
+      <div class="view">
+        <div class="pages">
+          <div class="page">
+            <div class="page-content">
+                <div class="content-block">
+                    <div class="row">
+                        <div class="col-auto">
+                          <div class="app-profile-pic">
+                              <a href="#"><img id="profile-pic" src="img/profile-pic.png" width="100%" /></a>
+                            </div>
+                            <div class="app-profile-pic2">
+                              <a href="#" id="profile-name">Username</a>
+<!--                                <img id="profile-pic" src="img/profile-pic.png" width="100%" />-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+              <div class="list-block">
+                <ul>
+                  <li>
+                      <a href="home.html" class="item-content item-link left-menu-list">
+                      <div class="item-inner">
+                        <div class="item-title app-index-menu1">HOME</div>
+                      </div>
+                      </a>
+                    </li>
+                  <li>
+                      <a href="friendlist.html" class="item-content item-link left-menu-list">
+                      <div class="item-inner">
+                        <div class="item-title app-index-menu1">FRIENDS</div>
+                      </div>
+                      </a>
+                    </li>
+                  <li>
+                      <a href="#" class="item-content item-link left-menu-list">
+                      <div class="item-inner">
+                        <div class="item-title app-index-menu1">LIST</div>
+                      </div>
+                      </a>
+                    </li>
+                  <li>
+                      <a href="add-group.html" class="item-content item-link left-menu-list">
+                      <div class="item-inner">
+                        <div class="item-title app-index-menu1">GROUPS</div>
+                      </div>
+                      </a>
+                  </li>
+                    <li>
+                      <a href="add-event.html" class="item-content item-link left-menu-list">
+                      <div class="item-inner">
+                        <div class="item-title app-index-menu1">EVENTS</div>
+                      </div>
+                      </a>
+                  </li>
+                    <li>
+                      <a href="#" class="item-content item-link">
+                      <div class="item-inner">
+                        <div class="item-title app-index-menu1">REPORT</div>
+                      </div>
+                      </a>
+                  </li>
+                    <li>
+                      <a href="payment.html" class="item-content item-link">
+                      <div class="item-inner">
+                        <div class="item-title app-index-menu1">PAYMENT</div>
+                      </div>
+                      </a>
+                  </li>
+                  <li class="app-menu-off">
+                      <a href="#" id="btn-logout" class=""><!--javascript:void(0)-->
+<!--
+                      <div class="item-inner">
+                        <div class="item-title left-menu-list">LOGOUT</div>
+                      </div>
+-->
+                          <i class="fa fa-power-off fa-2x" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+        <!-- Views-->
+        <div class="views">
+            <!-- Your main view, should have "view-main" class-->
+            <div class="view view-main">
+                <!-- Top Navbar-->
+                <div class="navbar">
+                  <div class="navbar-inner">
+                <!-- We have home navbar without left link-->
+                <!--
+                            <div class="center sliding">Awesome App</div>
+                            <div class="right">
+                            </div>-->
+                          </div>
+                        </div>
+                <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+                <div class="pages navbar-through toolbar-through">
+                    <!-- Page, data-page contains page name-->
+                    <div data-page="index" class="page" id="payment-block">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Path to Framework7 Library JS-->
+        <script type="text/javascript" src="js/framework7.js"></script>
+        <script type="text/javascript" src="js/framework7.3dpanels.js"></script>
+        <!-- Path to your app js-->
+        <script type="text/javascript" src="js/my-app.js"></script>
+<!--
+        <script>
+         var myApp = new Framework7({swipePanel:'left'});
+         var mainView = myApp.addView('.view-main');
+        </script>
+-->
+
+        <!-- PayPal Pluggin -->
+<!--
+        <script type="text/javascript" src="js/cdv-plugin-paypal-mobile-sdk.js"></script>
+        <script type="text/javascript" src="js/paypal-mobile-js-helper.js"></script>
+        <script type="text/javascript" src="js/paypal.js"></script>
+-->
+
+        <!-- My JS-->
+        <script type="text/javascript" src="js/validate.js"></script>
+        <script type="text/javascript" src="js/model.js"></script>
+        <script type="text/javascript" src="js/event.js"></script>
+
+    </body>
+</html>
