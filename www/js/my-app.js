@@ -51,9 +51,8 @@ function $Ajax(postdata, API, m){
     myApp.showIndicator();
     var api_key=localStorage.getItem("api_key");
     var headers={};
-
     if((api_key!==null)&&(api_key.trim()!=''))
-    {   console.log(api_key);
+    {
         headers= {"Authorization":api_key};
     }
     $$.ajax({
@@ -67,14 +66,10 @@ function $Ajax(postdata, API, m){
             success: function(data, textStatus ){
              // We have received response and can hide activity indicator
              myApp.hideIndicator();
-             window[m](data);
+             window[m](data,postdata);
                data = JSON.parse(data);
                myApp.alert(data['message']);
              if (data['error']) {return}
-             else
-             {
-               localStorage.setItem("api_key", data['data']['API_KEY']);
-             }
 //
 //             var username = data.username;
 
@@ -90,6 +85,7 @@ function $Ajax(postdata, API, m){
             error: function(xhr, textStatus, errorThrown){
                 // We have received response and can hide activity indicator
                 myApp.hideIndicator();
+                console.log(xhr.response);
                 //myApp.alert('Some internal problem occured');
                 var response = JSON.parse(xhr.response);
                 myApp.alert(response['message']);

@@ -26,7 +26,6 @@ $(document).ready(function () {
 
         $('#pic-fm-camera').click(function(){
             profilePicChaneEvent(Camera.PictureSourceType.CAMERA);
-
         });
         $('#pic-fm-galery').click(function(){
             profilePicChaneEvent(Camera.PictureSourceType.PHOTOLIBRARY);
@@ -47,7 +46,9 @@ $(document).ready(function () {
 
         var camera = navigator.camera.getPicture(function(url){
             var id = localStorage.getItem('id');
-            $Ajax({img:url, id:id}, 'changeProfilePic', 'profilePicChageSuccess');
+            var api_key = localStorage.getItem('api_key');
+//            $Ajax({img:url, id:id}, 'changeProfilePic', 'profilePicChageSuccess');
+            $Ajax({profile_picture:url, Authorization:api_key}, 'profile_updation', 'profilePicChageSuccess');
         }, function(){}, options);
     }
 
@@ -56,7 +57,10 @@ $(document).ready(function () {
           function (name) {
            if(String(name).trim()!= ''){
                var id = localStorage.getItem('id');
-               $Ajax({name:name, id:id}, 'changeProfileName', 'profileNameChageSuccess');
+               var api_key = localStorage.getItem('api_key');
+               console.log(api_key);
+//               $Ajax({name:name, id:id}, 'changeProfileName', 'profileNameChageSuccess');
+                $Ajax({name:name, Authorization:api_key}, 'profile_updation', 'profileNameChageSuccess');
            }
           },
           function (value) {
@@ -71,23 +75,24 @@ $$(document).on('pageInit', function (e) {
     });
 });
 function setSession(data){
-    localStorage.setItem('id', data.id);
-    localStorage.setItem('email', data.email);
-    localStorage.setItem('name', data.name);
-    localStorage.setItem('mobile', data.mobile);
-    localStorage.setItem('img', data.img);
-    localStorage.setItem('role', data.role);
+    localStorage.setItem('api_key',  data['data']['API_KEY']);
+    localStorage.setItem('id',  data['data']['USER_ID']);
+//    localStorage.setItem('email', data.email);
+    localStorage.setItem('name', data['data']['NAME']);
+//    localStorage.setItem('mobile', data.mobile);
+    if(data['data']['PROFILE_PICTURE']!=null && data['data']['PROFILE_PICTURE']!='null'){
+        localStorage.setItem("img", data['data']['PROFILE_PICTURE']);
+    }
+//    localStorage.setItem('role', data.role);
     setProfile();
 }
 
 function setProfile(){
     var img  = localStorage.getItem('img');
-    if(img!=null && img!='null' && String(img).trim() !=''){
+    if(img!=null && img!='null' && String(img).trim() !='' && img!=undefined && img!='undefined'){
         document.getElementById('profile-pic').src = img;
-    }else{
-        document.getElementById('profile-pic').src = 'img/profile-pic.png';
     }
-    $$('#profile-name').html(localStorage.getItem('name'));
+    $('#profile-name').html(localStorage.getItem('name'));
 }
 
 myApp.onPageInit('login', function (page) {
@@ -148,7 +153,7 @@ function callForFiendList(){
    $Ajax({}, 'getFriendList', 'friend_list');
 }
 
-function $login_success(data){
+function $login_success(data,postdata){
 //    console.log(data);
     data = JSON.parse(data);
     if (data.error) {
@@ -159,7 +164,7 @@ function $login_success(data){
     }
 }
 
-function $signup_success(data){
+function $signup_success(data,postdata){
     data = JSON.parse(data);
     if (data.error) {
        myApp.alert(data.message, '');
@@ -170,23 +175,23 @@ function $signup_success(data){
     }
 }
 
-function profilePicChageSuccess(data){
+function profilePicChageSuccess(data,postdata){
     data = JSON.parse(data);
     if (data.error) {
         myApp.alert(data.message, '');
     } else {
-        localStorage.setItem('img', data.img);
-        document.getElementById('profile-pic').src = data.img;
+        localStorage.setItem('img', data['data'].PROFILE_PICTURE);
+        document.getElementById('profile-pic').src = data['data'].PROFILE_PICTURE;
     }
 }
 
-function profileNameChageSuccess(data){
+function profileNameChageSuccess(data,postdata){
     data = JSON.parse(data);
     if (data.error) {
         myApp.alert(data.message, '');
     } else {
-        localStorage.setItem('name', data.name);
-        document.getElementById('profile-name').innerText = data.name;
+        localStorage.setItem('name', postdata.name);
+        document.getElementById('profile-name').innerText = postdata.name;
     }
 }
 
@@ -234,7 +239,8 @@ function readContacts(){
 //        myApp.alert('Found ' + contacts.length + ' contacts.');
     }, function(){}, options);
 }
-function friend_list(data){
+
+function friend_list(data,postdata){
     myFriendList = myApp.virtualList('#friend-list',{
         items: JSON.parse(data),
         // Custom render function to render item's HTML
