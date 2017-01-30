@@ -70,7 +70,7 @@ function $Ajax(postdata, API, m){
                data = JSON.parse(data);
                myApp.alert(data['message']);
              if (data['error']) {return}
-//
+
 //             var username = data.username;
 
 //             Will pass context with retrieved user name

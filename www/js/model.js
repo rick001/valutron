@@ -17,7 +17,7 @@ $(document).ready(function () {
                     '<div class="list-block">'+
                       '<ul>'+
                       '<li><a href="#" id="pic-fm-camera" class="item-link list-button">Camera</li>'+
-                      '<li><a href="#" id="pic-fm-galery" class="item-link list-button">Galary</li>'+
+                      '<li><a href="#" id="pic-fm-galery" class="item-link list-button">Gallery</li>'+
                       '</ul>'+
                     '</div>'+
                   '</div>'+
@@ -58,7 +58,6 @@ $(document).ready(function () {
            if(String(name).trim()!= ''){
                var id = localStorage.getItem('id');
                var api_key = localStorage.getItem('api_key');
-               console.log(api_key);
 //               $Ajax({name:name, id:id}, 'changeProfileName', 'profileNameChageSuccess');
                 $Ajax({name:name, Authorization:api_key}, 'profile_updation', 'profileNameChageSuccess');
            }
