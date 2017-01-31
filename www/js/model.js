@@ -154,13 +154,13 @@ function callForFiendList(){
 
 function $login_success(data,postdata){
 //    console.log(data);
-    data = JSON.parse(data);
-    if (data.error) {
-       myApp.alert(data.message, '');
-    } else {
-        mainView.router.loadPage('home.html');
-        setSession(data);
-    }
+//    data = JSON.parse(data);
+//    if (data.error) {
+//       myApp.alert(data.message, '');
+//    } else {
+//        mainView.router.loadPage('home.html');
+//        setSession(data);
+//    }
 }
 
 function $signup_success(data,postdata){
